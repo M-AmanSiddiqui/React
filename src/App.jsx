@@ -18,11 +18,21 @@ function App() {
   // const handleUpdateCounter = () =>{
   //   setcounter(counter + 1)
   // } 
+  console.log(userName);
+  
   return (
     <div>
       {/* Header */}
     <Header header={header} />
         {/* Use with input */}
+        {/* <div  className='flex justify-center items-center flex-col'>
+          <input
+           value={userName} 
+          placeholder='Add Your Name' 
+          onChange={(e)=> setUserName(e.target.value)}
+          className='border border purple-400'
+          />
+          </div> */}
 
     {/* Use with number */}
     {/* <div  className='flex justify-center items-center flex-col'>
