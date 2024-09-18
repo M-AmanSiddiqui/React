@@ -14,16 +14,54 @@ function App() {
   console.log("landingPageData", landingPageData);
   const {header, hero , features , testimonials} = landingPageData;
 
-  // const [counter,setcounter] = useState (0)
-  // const handleUpdateCounter = () =>{
-  //   setcounter(counter + 1)
-  // } 
- 
-  
-  return (
+
+  const [amount , setamount] = useState (0);
+  const [type,setType] = useState ("income");
+  const [transactions,setTransactions] = useState ([]);
+
+  const handleAddTransactions = () =>{
+    setTransactions([...transactions , {amount,type}])
+    
+    
+  };
+  console.log("transactions",transactions);
+    
+    return (
     <div>
       {/* Header */}
     <Header header={header} />
+    <div className='flex flex-col justify-center items-center'>
+      <div className='flex'>
+<input 
+value={amount}
+onChange={(e) => setamount(e.target.value)}
+ className="border border-purple-600 rounded-sm m-4 mx-2 p-1" type="number" placeholder='add Amount'/>
+<select value={type}
+onChange={(e) => setType(e.target.value)}
+className='border border-purple-600 rounded-sm m-4 mx-2 p-1'> 
+  <option value="income">income</option>
+  <option value="expense">expense</option>
+
+</select>
+<button onClick={handleAddTransactions} className='border border-purple-600 rounded-sm m-4 mx-2 p-1'>submit</button>
+      </div>
+      <div>
+        {
+          transactions.map((data , index)=>{
+            return (
+             <div key={index} className='flex g' ><h1 className='font-bold underline text-3xl w-60'>{data.amount}</h1>
+            <h1 className={`font-bold underline text-3xl ${data.type === "income" ? "text-green-700" : "text-red-700"  }`}
+             >
+              {data.type}</h1>
+            </div>
+            );
+          })}
+        
+      </div>
+    </div>
+
+
+
         {/* Use with input */}
         {/* <div  className='flex justify-center items-center flex-col'>
           <input
