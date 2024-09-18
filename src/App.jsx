@@ -13,12 +13,12 @@ import Footer from './components/Footer'
 function App() {
   console.log("landingPageData", landingPageData);
   const {header, hero , features , testimonials} = landingPageData;
-  const [userName,setUserName] = useState ('Aman')
+
   // const [counter,setcounter] = useState (0)
   // const handleUpdateCounter = () =>{
   //   setcounter(counter + 1)
   // } 
-  console.log(userName);
+ 
   
   return (
     <div>
